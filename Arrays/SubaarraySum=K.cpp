@@ -24,7 +24,7 @@ public:
     }
 };
 /*
-Approach: Similar to Subarray Sum = 0 problem.
-Keep adding sum, and if sum-k=0, use that subarray(increment count) and also If sum-k is repeated, use that subarray (add its count)
+Approach: Very similar Subarray Sum = 0 problem.
+Keep adding sum, and if sum-k=0, use that subarray(increment count) and also If sum-k is repeated, use that subarray (add its stored count)
 Also, update current sum count in hash map, so that it can be used for making later subarrays.
 */

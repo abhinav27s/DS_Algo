@@ -1,5 +1,5 @@
 /*
-Problem : Return true if Subarray with sum=0 exists
+Problem : Check if Subarray with sum=0 exists
 Link: https://practice.geeksforgeeks.org/problems/subarray-with-0-sum-1587115621/1
 */
 class Solution {

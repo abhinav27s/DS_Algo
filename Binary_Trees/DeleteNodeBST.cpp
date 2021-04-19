@@ -2,61 +2,64 @@
 Problem : Delete Node in a BST
 Link : https://leetcode.com/problems/delete-node-in-a-bst/
 */
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
 class Solution {
 public:
-    TreeNode* deleteNode(TreeNode* root, int key) {
+	TreeNode* deleteNode(TreeNode* root, int key) {
+		if (!root)
+			return NULL;
 
-        TreeNode* node = searchInBST(root, key, parent);
+		if (root->val < key) {
+			root->right = deleteNode(root->right, key);
+			return root;
+		}
 
-        if (!node->left && !node->right) {
-            if (node == root)
-                return NULL;
-            if (parent->left == node)
-                parent->left = NULL;
-            else if (parent->right == node)
-                parent->right = NULL;
-            node = NULL;
-            delete(node);
-            return;
-        }
+		if (root->val > key) {
+			root->left = deleteNode(root->left, key);
+			return root;
+		}
 
-        if ((node->left && !node->right) || (!node->left && node->right)) {
-            if (parent->left == node) {
-                if (node->left)
-                    parent->left = node->left;
-                else if (node->right)
-                    parent->left = node->right;
+		// No child - simply delete
+		if (!root->left && !root->right) {
+			root = NULL;
+			delete(root);
+			return NULL;
+		}
 
-            }
-            else if (parent->right == node) {
-                if (node->left)
-                    parent->right = node->left;
-                else if (node->right)
-                    parent->right = node->right;
-            }
-        }
-        else {
-            TreeNode* ptr = node->right;
-            parent = node;
-            while (ptr->left) {
-                ptr = ptr->left;
-                parent = ptr;
-            }
-            node->data = ptr->data;
+		// Only one child - point that child to root's parent
+		if (root->left && !root->right) {
+			TreeNode* temp = root->left;
+			delete(root);
+			return temp;
+		}
+		else if (root->right && !root->left) {
+			TreeNode* temp = root->right;
+			delete(root);
+			return temp;
+		}
+		// both children - replace root's data with inorder successor's data and delete latter node using recursion.
+		else {
+			TreeNode* ptr = root->right;
+			while (ptr->left)
+				ptr = ptr->left;
+			root->val = ptr->val;
+			root->right = deleteNode(root->right, ptr->val);
+		}
 
-            if (ptr->right) {
-                if (parent == node)
-                    parent->right = ptr->right;
-                else
-                    parent->left = ptr->right;
-            }
-        }
-        node->left = node->right = NULL;
-        node = NULL;
-        delete(node);
-    }
+		return root;
+	}
 };
 /*
-Approach: Take 3 cases, if node has no child, one child and both children. 
-In one or both children, swap node with inorder successor data and delete latter.
+Approach: First search in BST as done.
+When found, take 3 cases, if node has no child, one child and both children. 
 */

@@ -1,7 +1,6 @@
 # DS_Algo
  
-This repository contains some standard problems of Data Structures and Algorithms, along with their self-coded solutions. 
-Suggestions for further improvement are highly appreciated.
+This repository contains problems of Data Structures and Algorithms, along with their self-coded solutions. 
 
 Coding porfolios @
 Hackerearth : https://www.hackerearth.com/@abhinav122

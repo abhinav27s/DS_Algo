@@ -1,6 +1,7 @@
 /*
-Problem : Detect cycle in an undirected graph
+Problem : Detect cycle in an undirected graph / Check if given graph is tree or not
 Link : https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1
+Similar Link : https://www.geeksforgeeks.org/check-given-graph-tree/
 */
 class Solution
 {

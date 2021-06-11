@@ -55,5 +55,13 @@ public:
     }
 };
 /*
--> // By default a max or min heap is created, ordered by first element of pair.
+Note: By default a max or min priority queue is created, ordered by first element of pair.
+
+Single source shortest path (Dijkstra Algorithm)
+1. Create a dist array for all nodes, marked with INT_MAX initially.
+2. Visit the source node, set dist[source]=0, and insert pair(dist[source],source) to priority queue
+3.  while(q is not empty){
+		pop from queue // nearest node will be popped out automatically from priority queue
+		update dist all those adjacent nodes from popped node, which are unvisited and lesser than current dist. Insert them in priority queue
+	}
 */

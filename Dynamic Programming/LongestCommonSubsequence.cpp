@@ -9,9 +9,9 @@ public:
         int dp[1001][1001]; //stores LCS count
         
         //LCS = 0, if any of the strings is empty
-        for(i=0;i<m;i++)
+        for(i=0;i<=m;i++)
             dp[i][0] = 0;
-        for(i=0;i<n;i++)
+        for(i=0;i<=n;i++)
             dp[0][i] = 0;
         
         for(i=1;i<=m;i++)

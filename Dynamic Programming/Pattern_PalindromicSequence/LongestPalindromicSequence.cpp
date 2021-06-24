@@ -26,7 +26,7 @@ public:
 /*
 Approach 1(main) : 2-D DP. Since there is one string, so matrix with same string in row index(i) and column index(j) can be made as :
   a b c b c d            Eg - in string bbbab, (i,j) = (2,4) represents substring bab .
-a 1        answer             dp[i][j] represents the count of longest palindromic string(i,j).
+a 1        ans                dp[i][j] represents the count of longest palindromic string(i,j).
 b 0 1                         Start filling the matrix from bottom left corner till we get top right corner as answer.
 c 0 0 1                       For i>j, there is no valid string, so dp[i][j] = 0 always.
 b 0 0 0 1                               And for i=j, dp[i][j] = 1, as single character is always a palindromic string. 

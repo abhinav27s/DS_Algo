@@ -14,9 +14,9 @@ public:
         
         for(i=1;i<=coins.size();i++)
             for(j=1;j<=amount;j++){
-                dp[i][j] = dp[i-1][j];
+                dp[i][j] = dp[i-1][j]; //exclude current item
                 if(j-coins[i-1]>=0)
-                    dp[i][j]+=dp[i][j-coins[i-1]];
+                    dp[i][j]+=dp[i][j-coins[i-1]]; //include current item 
             }
         
         return dp[coins.size()][amount];

@@ -15,3 +15,7 @@ public:
         return dp[n];
     }
 };
+/*
+Approach : Similar to Fibonnaci number problem 
+Time : O(N), Space : O(N)
+*/

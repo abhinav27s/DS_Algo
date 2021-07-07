@@ -25,6 +25,7 @@ class Solution
     }
 };
 /*
-Approach : Similar approach as Longest Increasing Subsequence, except that there is no need of second inner loop as per problem.
+Approach : Similar logic as Longest Increasing Subsequence, except that there is no need of second inner loop as per problem.
+Similar implementation as Fibonacci Number 
 Time - O(N), Space - O(N)
 */
